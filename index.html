@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Technical Documentation Page! FCC: Test Suite Template</title>
+
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+
+      <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+<!--  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>   -->
+
+<nav id="navbar">
+  <header>CSS Documentation</header>
+  <br>
+  <ul>
+    <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+    <li><a class="nav-link" href="#Prerequisites">Prerequisites</a></li>
+    <li><a class="nav-link" href="#How_CSS_works">How CSS works</a></li>
+    <li><a class="nav-link" href="#Selectors">Selectors</a></li>
+    <li><a class="nav-link" href="#Pseudo-Classes">Pseudo-Classes</a></li>
+    <li><a class="nav-link" href="#Pseudo-Elements">Pseudo-Elements</a></li>
+    <li><a class="nav-link" href="#Fundamental_CSS_Comprehension">Fundamental CSS Comprehension</a></li>
+    <li><a class="nav-link" href="#Reference">Reference</a></li>
+  </ul>
+</nav>
+
+<main id="main-doc">
+  <section class="main-section" id="Introduction">
+    <header>Introduction</header>
+    <article>
+      <p>CSS is used to style and lay out web pages — for example, to alter the font, colour, size and spacing of your content, split it into multiple columns, or add animations and other decorative features. This module gets you started on the path to CSS mastery with the basics of how it works, including selectors and properties, writing CSS rules, applying CSS to HTML, how to specify length, colour, and other units in CSS, cascade and inheritance, and debugging CSS.</p>
+    </article>
+  </section>
+
+
+  <section class="main-section" id="Prerequisites">
+    <header>Prerequisites</header>
+    <article>
+      <p>Before starting this module, you should have:</p>
+      <ol>
+        <li>Basic familiarity with using computers, and using the Web passively (i.e. just looking at it, consuming the content.)</li>
+        <li>A basic work environment set up as detailed in Installing basic software, and an understanding of how to create and manage files, as detailed in Dealing with files.</li>
+        <li>Basic familiarity with HTML, as discussed in the Introduction to HTML module.</li>
+      </ol>
+    </article>
+  </section>
+
+
+  <section class="main-section" id="How_CSS_works">
+    <header>How CSS works</header>
+    <article>
+      <p>Web browsers apply <b>CSS rules</b> to a document to affect how they are displayed. A CSS rule is formed from:</p>
+      <ul>
+        <li>A set of properties, which have values set to update how the HTML content is displayed, for example I want my element's width to be 50% of its parent element, and its background to be red.</li>
+        <li>A selector, which selects the element(s) you want to apply the updated property values to. For example, I want to apply my CSS rule to all the paragraphs in my HTML document.</li>
+      </ul>
+      <p>A set of CSS rules contained within a <b>stylesheet</b> determines how a webpage should look. You will learn a lot more about what CSS syntax looks like in the next article of the module — CSS Syntax.</p>
+      <p>The above descriptions may or may not have made sense, so let's make sure things are clear by presenting a quick example. First of all, let's take a simple HTML document, containing an <mark>&lth1&gt</mark> and a <mark>&ltp&gt</mark> (notice that a stylesheet is applied to the HTML using a <mark>&ltlink&gt</mark> element):</p>
+      <code>
+&lt!DOCTYPE html&gt
+  &lthtml&gt
+    &lthead&gt
+      &ltmeta charset="utf-8"&gt
+      &lttitle&gtMy CSS experiment&lt/title&gt
+      &ltlink rel="stylesheet" href="style.css"&gt
+    &lt/lthead&gt
+    &ltbody&gt
+      &lth1&gtHello World!&lt/h1&gt
+      &ltp&gtThis is my first CSS example&lt/p&gt
+    &lt/body&gt
+  &lt/html&gt
+      </code>
+      <p>Now let's look at a very simple CSS example containing two rules:</p>
+      <code>
+h1 {
+  color: blue;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+p {
+  color: red;
+}
+      </code>
+      <p>The first rule starts with an <mark>h1</mark> selector, which means that it will apply its property values to the <mark>&lth1&gt</mark> element. It contains three properties and their values (each property/value pair is called a declaration):</p>
+      <ol>
+        <li>The first one sets the text color to blue.</li>
+        <li>The second sets the background color to yellow.</li>
+        <li>The third one puts a border around the header that is 1 pixel wide, solid (not dotted, or dashed, etc.), and colored black.</li>
+      </ol>
+      <p>The second rule starts with a <mark>p</mark> selector, which means that it will apply its property values to the <mark>&ltp&gt</mark> element. It contains one declaration, which sets the text color to red.</p>
+      <p>In a web browser, the code above would produce the following output:</p>
+      <img src="https://mdn.mozillademos.org/files/12537/first-example.png" alt="css code output"></img>
+    </article>
+  </section>
+
+
+  <section class="main-section" id="Selectors">
+    <header>Selectors</header>
+    <article>
+      <p>In CSS, selectors are used to target the HTML elements on our web pages that we want to style. There are a wide variety of CSS selectors available, allowing for fine grained precision when selecting elements to style. In the next few articles we'll run through the different types in great detail, seeing how they work.</p>
+      <p>Selectors can be divided into the following categories:</p>
+      <ul>
+        <li><b>Simple selectors</b>: Match one or more elements based on element type, <mark>class</mark>, or <mark>id</mark>.</li>
+        <li><b>Attribute selectors</b>: Match one or more elements based on their attributes/attribute values.</li>
+        <li><b>Pseudo-classes</b>: Match one or more elements that exist in a certain state, such as an element that is being hovered over by the mouse pointer, or a checkbox that is currently disabled or checked, or an element that is the first child of its parent in the DOM tree.</li>
+        <li><b>Pseudo-elements</b>: Match one or more parts of content that are in a certain position in relation to an element, for example the first word of each paragraph, or generated content appearing just before an element.</li>
+        <li><b>Combinators</b>: These are not exactly selectors themselves, but ways of combining two or more selectors in useful ways for very specific selections. So for example, you could select only paragraphs that are direct descendants of divs, or paragraphs that come directly after headings.</li>
+        <li><b>Multiple selectors</b>: Again, these are not separate selectors; the idea is that you can put multiple selectors on the same CSS rule, separated by commas, to apply a single set of declarations to all the elements selected by those selectors.</li>
+      </ul>
+    </article>
+  </section>
+
+
+  <section class="main-section" id="Pseudo-Classes">
+    <header>Pseudo-Classes</header>
+    <article>
+      <p>A CSS pseudo-class is a keyword added to the end of a selector, preceded by a colon (:), which is used to specify that you want to style the selected element but only when it is in a certain state. For example, you might want to style a link element only when it is being hovered over by the mouse pointer, or a checkbox when it is disabled or checked, or an element that is the first child of its parent in the DOM tree.</p>
+      <ul>
+        <li>:checked</li>
+        <li>:enabled</li>
+        <li>:hover</li>
+        <li>:nth-child()</li>
+        <li>:required</li>
+        <li>:valid</li>
+      </ul>
+      <p>We will not dig into every pseudo-class right now, it is not the objective of the Learning Area to teach you everything in exhaustive detail. You'll certainly come across some of these in more detail later, where appropriate.</p>
+      <p>For now, let's just see a simple example of how to use these. First, an HTML snippet:</p>
+      <code>
+&lta href="https://developer.mozilla.org/" target="_blank"&gtMozilla Developer Network&lt/a&gt
+      </code>
+      <p>Then, some CSS rules:</p>
+      <code>
+/* These styles will style our link
+   in all states */
+a {
+  color: blue;
+  font-weight: bold;
+}
+
+/* We want visited links to be the same color
+   as non visited links */
+a:visited {
+  color: blue;
+}
+
+/* We highlight the link when it is
+   hovered (mouse), activated
+   or focused (keyboard) */
+a:hover,
+a:active,
+a:focus {
+  color: darkred;
+  text-decoration: none;
+}
+      </code>
+      <p>Now let's play with the link we just styled!</p>
+      <code>
+<a href="https://developer.mozilla.org/" target="_blank">Mozilla Developer Network</a>
+      </code>
+    </article>
+  </section>
+
+  <section class="main-section" id="Pseudo-Elements">
+    <header>Pseudo-Elements</header>
+    <article>
+      <p>Pseudo-elements are very much like pseudo-classes, but they have differences. They are keywords, this time preceded by two colons (<mark>::</mark>), that can be added to the end of selectors to select a certain part of an element</p>
+      <ul>
+        <li><mark>: :after</mark></li>
+        <li><mark>: :before</mark></li>
+        <li><mark>: :first-letter</mark></li>
+        <li><mark>: :first-line</mark></li>
+        <li><mark>: :selection</mark></li>
+        <li><mark>: :backdrop</mark></li>
+      </ul>
+      <p>They all have some very specific behaviors and interesting features, but digging into them all in detail is beyond our scope for now.</p>
+      <p>Here we'll just show a simple CSS example that selects the space just after all absolute links and adds an arrow in that space:</p>
+      <code>
+&ltul&gt
+  &ltli&gt&lta href="https://developer.mozilla.org/en-US/docs/Glossary/CSS"&gtCSS&lt/a&gt defined in the MDN glossary.&lt/li&gt
+  &ltli&gt&lta href="https://developer.mozilla.org/en-US/docs/Glossary/HTML"&gtHTML&lt/a&gt defined in the MDN glossary.&lt/li&gt
+&lt/ul&gt
+      </code>
+      <p>Let's add this CSS rule:</p>
+      <code>
+/* All elements with an attribute "href", which values
+   start with "http", will be added an arrow after its
+   content (to indicate it's an external link) */
+[href^=http]::after {
+  content: '⤴';
+}
+      </code>
+      <p>We get this result:</p>
+      <code>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS">CSS</a> defined in the MDN glossary.</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML">HTML</a> defined in the MDN glossary.</li>
+</ul>
+      </code>
+    </article>
+  </section>
+
+  <section class="main-section" id="Fundamental_CSS_Comprehension">
+    <header>Fundamental CSS Comprehension</header>
+    <article>
+      <p>You've covered a lot in this module, so it must feel good to have reached the end! The final step before you move on is to attempt the assessment for the module — this involves a number of related exercises that must be completed in order to create the final design — a business card/gamer card/social media profile</p>
+      <p>To get this assessment started, you should:</p>
+      <ul>
+        <li>Go and grab the HTML file for the exercise, and the associated image file, and save them in a new directory on your local computer. If you want to use your own image file and fill your own name in, you are welcome to — just make sure the image is square.</li>
+        <li>Grab the CSS resources text file — this contains a set of raw selectors and rulesets that you'll need to study and combine to answer part of this assessment.
+</li>
+      </ul>
+    </article>
+  </section>
+
+
+  <section class="main-section" id="Reference">
+    <header>Reference</header>
+    <article>
+      <ul>
+        <li>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">MDN Web Docs</a>.</li>
+      </ul>
+    </article>
+  </section>
+
+
+</main>
+
+
+
+<!--    <script  src="js/index.js"></script>
+-->
+
+
+
+</body>
+
+</html>
